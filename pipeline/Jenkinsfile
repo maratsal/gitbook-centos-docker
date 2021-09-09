@@ -18,8 +18,8 @@ node {
                 }
 
                 stage('deploy') {
-                    def dc = openshift.selector('deployment', "${templateName}")
-                    dc.rollout().status()
+                    def deployment = openshift.selector('deployment', "${templateName}")
+                    deployment.rollout().status()
                 }
 
                 stage('ask for promotion') {
